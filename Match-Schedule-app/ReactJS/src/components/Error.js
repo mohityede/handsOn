@@ -2,7 +2,7 @@
 // props:
 //   message: error message that has to be displayed
 const Error = ({ message }) => (
-  message ? <div className="error">{message}</div> : null
+  message ? <div className="error">{ JSON.stringify(message) }</div> : null
 );
 
 

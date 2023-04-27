@@ -12,19 +12,20 @@ import Error from "./Error";
 //   error: renders the error from backend
 const Form = ({ title, inputOnChangeHandler, onSaveHandler, error }) => (
   <form>
-    <h3>{title}</h3>
-    <Error message={error} />
-    {model.filter(i => i.input_type)
+    <h3>{ title }</h3>
+    <Error message={ error } />
+    { model.filter(i => i.input_type)
       .map(i =>
-        <div key={i.key} className="form-group">
-          <label htmlFor={i.column_name}>{i.title}</label>
+        <div key={ i.key } className="form-group">
+          <label htmlFor={ i.column_name }>{ i.title }</label>
           <input
-            type={i.input_type}
-            name={i.column_name}
+            type={ i.input_type }
+            name={ i.column_name }
+            onChange={ inputOnChangeHandler }
           />
         </div>
-      )}
-    <Button onClick={onSaveHandler} className="success">Save</Button>
+      ) }
+    <Button onClick={ onSaveHandler } className="success">Save</Button>
   </form>
 );
 

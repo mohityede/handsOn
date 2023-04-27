@@ -13,39 +13,41 @@ import Button from "./Button";
 //   date: date key from the api. Make sure to render it in format "Day Mon DD YYYY" ex: "Sun Jun 23 2021"
 
 const Card = ({
-  _id,
-  index,
-  count,
-  venue,
-  team1,
-  team2,
-  date
+  // _id,
+  // index,
+  // count,
+  // venue,
+  // team1,
+  // team2,
+  // date,
+  data
 }) => (
-    <div className="card" id={_id}>
-      <div className="card-header">
-        <span>
-          <span className="small-txt">Match </span>
-          {index}
-          <span className="small-txt"> of </span>
-          {count}
-        </span>
-        <span>
-          <span className="small-txt">Venue: </span>
-          {venue}
-        </span>
-      </div>
-      <span id="teams">
-        {team1}
-        <span className="small-txt"> vs </span>
-        {team2}
+  <div className="card" id={ data._id }>
+    {/* { console.log(data) } */ }
+    <div className="card-header">
+      <span>
+        <span className="small-txt">Match </span>
+        { data.index }
+        <span className="small-txt"> of </span>
+        { data.count }
       </span>
-      <div className="card-footer">
-        <span id="matchDate" className="small-txt">
-          {/* Render the date here in format "Day Mon DD YYYY" (ex: "Sun Jun 23 2021") */}
-          {new Date(date).toDateString()}
-        </span>
-      </div>
+      <span>
+        <span className="small-txt">Venue: </span>
+        { data.venue }
+      </span>
     </div>
-  );
+    <span id="teams">
+      { data.team1 }
+      <span className="small-txt"> vs </span>
+      { data.team2 }
+    </span>
+    <div className="card-footer">
+      <span id="matchDate" className="small-txt">
+        {/* Render the date here in format "Day Mon DD YYYY" (ex: "Sun Jun 23 2021") */ }
+        { new Date(data.date).toDateString() }
+      </span>
+    </div>
+  </div>
+);
 
 export default Card;
